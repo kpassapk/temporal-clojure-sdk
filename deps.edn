@@ -1,4 +1,4 @@
-{:paths ["src"],
+{:paths ["src" "resources" "target/classes"],
  :deps
  {org.clojure/clojure {:mvn/version "1.11.3"},
   org.clojure/core.async {:mvn/version "1.6.681"},
@@ -11,9 +11,14 @@
   medley/medley {:mvn/version "1.4.0"},
   slingshot/slingshot {:mvn/version "0.12.2"}},
  :aliases
- {:dev
-  {:extra-paths ["test"]
-   :extra-deps {org.clojure/tools.namespace {:mvn/version "1.5.0"}
-                weavejester/eftest {:mvn/version "0.6.0"}
-                io.temporal/temporal-opentracing {:mvn/version "1.23.2"}}}
-  :resource-paths ["dev/resources" "test/temporal/test/resources"]}}
+ {:lein2deps
+  {:deps
+   {io.github.borkdude/lein2deps
+    {:git/sha "1bcf2fbbcbef611381e5e9ccdc77bec1e62ea5e5"}},
+   :ns-default lein2deps.build,
+   :lein2deps/compile-java
+   {:src-dirs ["src" "resources"],
+    :class-dir "target/classes",
+    :javac-opts ["-target" "11" "-source" "11"]}}},
+ :deps/prep-lib
+ {:ensure "target/classes", :alias :lein2deps, :fn compile-java}}
