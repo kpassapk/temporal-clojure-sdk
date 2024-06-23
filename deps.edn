@@ -1,0 +1,19 @@
+{:paths ["src"],
+ :deps
+ {org.clojure/clojure {:mvn/version "1.11.3"},
+  org.clojure/core.async {:mvn/version "1.6.681"},
+  io.temporal/temporal-sdk {:mvn/version "1.23.2"},
+  io.temporal/temporal-testing {:mvn/version "1.23.2"},
+  com.taoensso/encore {:mvn/version "3.111.0"},
+  com.taoensso/timbre {:mvn/version "6.5.0"},
+  com.taoensso/nippy {:mvn/version "3.4.1"},
+  funcool/promesa {:mvn/version "9.2.542"},
+  medley/medley {:mvn/version "1.4.0"},
+  slingshot/slingshot {:mvn/version "0.12.2"}},
+ :aliases
+ {:dev
+  {:extra-paths ["test"]
+   :extra-deps {org.clojure/tools.namespace {:mvn/version "1.5.0"}
+                weavejester/eftest {:mvn/version "0.6.0"}
+                io.temporal/temporal-opentracing {:mvn/version "1.23.2"}}}
+  :resource-paths ["dev/resources" "test/temporal/test/resources"]}}
