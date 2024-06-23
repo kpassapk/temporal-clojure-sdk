@@ -32,7 +32,7 @@
                                     [eftest "0.6.0"]
                                     [mockery "0.1.4"]
                                     [io.temporal/temporal-opentracing "1.23.2"]]
-                   :resource-paths ["dev/resources" "test/temporal/test/resources"]}}
+                   :resource-paths ["test/temporal/test/resources"]}}
   :cloverage {:runner :eftest
               :runner-opts {:multithread? false
                             :fail-fast? true}
